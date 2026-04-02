@@ -1,14 +1,15 @@
-# prediction_market-genlayer
-AI-powered prediction market on GenLayer Bradbury Testnet with Truth Gates, Optimistic Democracy and Equivalence Principle
+# TruthMarket
+**AI-Powered Prediction Market on GenLayer**
 
-prediction_market-genlayer is an Intelligent Contract that lets anyone create and bet on. 
-Real-world YES/NO prediction markets. Outcomes are resolved automatically. 
-By AI validators using verified web evidence — no oracles, no humans needed.
+TruthMarket is an Intelligent Contract that lets anyone create and bet on
+real-world YES/NO prediction markets. Outcomes are resolved automatically
+by AI validators using verified web evidence — no oracles, no humans needed.
 
 ---
 
 ## Deployment
-
+| | |
+|---|---|
 | **Network** | GenLayer Testnet Bradbury |
 | **Contract** | `0x01f0321395A7911130d9e5eE9F6B6CAE67c591CB` |
 | **Wallet** | `0x93476E8BcCA792C2E17707a8096176DD6d09153E` |
@@ -39,13 +40,88 @@ defining acceptable outputs — ensuring consistency across all validators.
 
 ---
 
-## Features
-- Create markets with any verifiable YES/NO question
-- Bet between 10–10,000 GEN on YES or NO
-- Automatic AI resolution from verified web evidence
-- Appeal system with resolver stake slashing
+## Full Feature List
+
+### Market Management
+- Create prediction markets with any YES/NO question
+- Set custom deadlines and resolution URLs
+- Cancel markets if needed
+- Max 20 markets per address
+
+### Betting System
+- Bet YES or NO on any market
+- Bet amount: 10 to 10,000 GEN
+- Max 3 bets per address per market
+- Max 100 bets per market
+- 2% platform fee on every bet
+
+### Truth Gate Resolution
+- Gate 1 — Deadline must have passed (UTC clock check)
+- Gate 2 — Resolution URL must return 300+ characters of real content
+- Gate 3 — AI confirms the page actually answers the question
+- All 3 gates must pass before AI can vote
+
+### AI Consensus
+- 3 independent AI models vote on outcome
+- 2 of 3 must agree before finalizing
+- Returns YES or NO with reasoning and confidence level
+
+### Resolver Staking
+- Resolver must deposit 50 GEN before resolving
+- Stake slashed 50% if appeal overturns their decision
+
+### Appeal System
+- Maximum 2 appeals per market
+- Costs 50 GEN to appeal
+- Re-fetches evidence and re-runs AI consensus
+- Market becomes final after 2nd appeal
+
+### Winnings & Payouts
+- Winners get bet back plus share of losing pool
+- Re-entrancy lock prevents double claiming
+- Refunds available if market is cancelled
+
+### Security
 - Prompt injection protection via greyboxing
-- Re-entrancy protection on all financial operations
+- Re-entrancy locks on all financial operations
+- HTTPS-only resolution URLs
+- Emergency pause/unpause by owner
+
+### Platform
+- 2% platform fee on all bets
+- Platform fee withdrawal
+- Contract version tracking (v4.1.0)
+- Transaction counter for audit trail
+
+---
+
+### Test Parameters
+
+**create_market**
+- market_id: `market_001`
+- question: `Will Bitcoin reach $100k by end of 2026?`
+- deadline_str: `2026-12-31`
+- resolution_url: `https://coinmarketcap.com/currencies/bitcoin/`
+
+**place_bet (YES)**
+- market_id: `market_001`
+- bet_id: `bet_001`
+- side: `YES`
+- amount: `100`
+
+**place_bet (NO)**
+- market_id: `market_001`
+- bet_id: `bet_002`
+- side: `NO`
+- amount: `100`
+
+**deposit_resolver_stake**
+- resolver_id: `resolver_001`
+- amount: `50`
+
+**resolve_market**
+- market_id: `market_001`
+- resolver_id: `resolver_001`
 
 ---
 
