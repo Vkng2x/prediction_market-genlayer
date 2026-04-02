@@ -95,35 +95,5 @@ defining acceptable outputs — ensuring consistency across all validators.
 
 ---
 
-### Test Parameters
-
-**create_market**
-- market_id: `market_001`
-- question: `Will Bitcoin reach $100k by end of 2026?`
-- deadline_str: `2026-12-31`
-- resolution_url: `https://coinmarketcap.com/currencies/bitcoin/`
-
-**place_bet (YES)**
-- market_id: `market_001`
-- bet_id: `bet_001`
-- side: `YES`
-- amount: `100`
-
-**place_bet (NO)**
-- market_id: `market_001`
-- bet_id: `bet_002`
-- side: `NO`
-- amount: `100`
-
-**deposit_resolver_stake**
-- resolver_id: `resolver_001`
-- amount: `50`
-
-**resolve_market**
-- market_id: `market_001`
-- resolver_id: `resolver_001`
-
----
-
 ## License
 MIT
