@@ -95,5 +95,54 @@ defining acceptable outputs — ensuring consistency across all validators.
 
 ---
 
+## Smart Contract Methods
+
+### Read Methods
+
+| Method | Description |
+|---|---|
+| `get_market` | Get raw market data |
+| `get_market_summary` | Get market stats and outcome |
+| `get_bet` | Get bet details by bet ID |
+| `get_appeal` | Get appeal details by appeal ID |
+| `get_balance` | Get balance of any address |
+| `get_resolver_stake` | Get resolver stake amount |
+| `get_contract_status` | Get full contract configuration |
+| `get_ai_commentary` | Get AI sentiment analysis of a market |
+
+### Write Methods
+
+| Method | Description |
+|---|---|
+| `create_market` | Create a new prediction market |
+| `place_bet` | Place a YES or NO bet |
+| `resolve_market` | Resolve market using Truth Gates + AI |
+| `appeal_market` | Appeal a resolved market outcome |
+| `claim_winnings` | Claim winnings after resolution |
+| `cancel_market` | Cancel an open market |
+| `refund_bet` | Refund bet from cancelled market |
+| `deposit_resolver_stake` | Deposit stake to become resolver |
+| `withdraw_resolver_stake` | Withdraw resolver stake |
+| `withdraw` | Withdraw balance |
+| `withdraw_platform_fees` | Withdraw collected platform fees |
+| `emergency_pause` | Pause all contract operations |
+| `emergency_unpause` | Resume contract operations |
+
+---
+
+## Why TruthMarket Wins
+
+| Feature | Others | TruthMarket |
+|---|---|---|
+| Transparent Resolution | ❌ | ✅ |
+| AI-Powered Insights | ❌ | ✅ |
+| Appeal System | ❌ | ✅ |
+| Permissionless Access | ❌ | ✅ |
+| Resolver Staking | ❌ | ✅ |
+| On-Chain Settlement | ❌ | ✅ |
+| Prompt Injection Protection | ❌ | ✅ |
+
+---
+
 ## License
 MIT
